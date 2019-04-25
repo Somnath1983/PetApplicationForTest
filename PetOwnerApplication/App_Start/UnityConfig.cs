@@ -1,9 +1,12 @@
-using System;
-
-using Unity;
-
 namespace PetOwnerApplication
 {
+    using PetOwnerApplication.Repositories;
+    using PetOwnerApplication.Services;
+    using PetOwnerApplication.Utilities;
+    using PetOwnerApplication.Utilities.Caching;
+    using System;
+
+    using Unity;
     /// <summary>
     /// Specifies the Unity configuration for the main container.
     /// </summary>
@@ -42,6 +45,10 @@ namespace PetOwnerApplication
 
             // TODO: Register your type's mappings here.
             // container.RegisterType<IProductRepository, ProductRepository>();
+            container.RegisterType<IPetOwnerRepository, PetOwnerRepository>();
+            container.RegisterType<IPetOwnerService, PetOwnerService>();
+            container.RegisterType<ICaching, Caching>();
+
         }
     }
 }
